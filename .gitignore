@@ -1,2 +1,6 @@
 .vscode
 *.dll
+generate_bat.py
+compile.bat
+main.exe
+*.o

@@ -1,6 +1,7 @@
-#include <SFML/Graphics.hpp>
+#include <iostream>
+#include "mainWindow.h"
 
 int main()
 {
-    
+    MainWindow myWindow;
 }
