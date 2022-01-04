@@ -1,9 +1,13 @@
+#include <fstream>
 #include "mainWindow.h"
 
 MainWindow::MainWindow()
 {
-    windowSize[0] = 500;
-    windowSize[1] = 500;
+    std::ifstream ifs("settings.json");
+    settings = nlohmann::json::parse(ifs);
+
+    windowSize[0] = std::stoi(settings.value("MainWindowWidth", "500"));
+    windowSize[1] = std::stoi(settings.value("MainWindowHeight", "500"));;
 
     if (createWindow())
     {
@@ -14,7 +18,7 @@ MainWindow::MainWindow()
 
 bool MainWindow::createWindow()
 {
-    window.create(sf::VideoMode(windowSize[0], windowSize[1]), "Main Window");
+    window.create(sf::VideoMode(windowSize[0], windowSize[1]), settings.value("MainWindowTitle", "Main Window"));
     window.setVerticalSyncEnabled(true);
     return 1;
 }
