@@ -9,6 +9,7 @@ MainWindow::MainWindow()
     windowSize[0] = std::stoi(settings.value("MainWindowWidth", "500"));
     windowSize[1] = std::stoi(settings.value("MainWindowHeight", "500"));
 
+    createButton();
     if (createWindow())
     {
         std::cout << "Window Opened" << std::endl;
@@ -37,6 +38,17 @@ bool MainWindow::runWindow()
                 return 0;
             }
         }
+
+        for (int i = 0; i < buttons.size(); i++)
+        {
+            window.draw(buttons[i] -> getShape());
+        }
     }
     return 1;
+}
+
+bool MainWindow::createButton()
+{
+    Button newButton = Button(0, 0, 100, 50);
+    buttons.push_back(&newButton);
 }
