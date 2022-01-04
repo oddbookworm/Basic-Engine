@@ -7,7 +7,7 @@ MainWindow::MainWindow()
     settings = nlohmann::json::parse(ifs);
 
     windowSize[0] = std::stoi(settings.value("MainWindowWidth", "500"));
-    windowSize[1] = std::stoi(settings.value("MainWindowHeight", "500"));;
+    windowSize[1] = std::stoi(settings.value("MainWindowHeight", "500"));
 
     if (createWindow())
     {
