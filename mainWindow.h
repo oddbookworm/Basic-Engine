@@ -9,11 +9,14 @@ class MainWindow
 {
     private:
         int windowSize [2];
+        std::string windowTitle;
         sf::Window window;
+
+        bool createWindow();
+        bool runWindow();
 
     public:
         MainWindow();
-        bool createWindow();
 
 };
 
