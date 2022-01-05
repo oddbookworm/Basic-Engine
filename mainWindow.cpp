@@ -76,8 +76,3 @@ bool MainWindow::createButton()
     Button newButton = Button(100, 50, 20, 10);
     buttons.push_back(newButton);
 }
-
-bool MainWindow::checkButtonClick()
-{
-
-}

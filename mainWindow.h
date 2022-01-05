@@ -19,7 +19,6 @@ class MainWindow
         bool createWindow();
         bool runWindow();
         bool createButton();
-        bool checkButtonClick();
 
     public:
         MainWindow();
