@@ -38,10 +38,12 @@ bool MainWindow::runWindow()
                 return 0;
             }
 
+            window.clear();
             for (int i = 0; i < buttons.size(); i++)
             {
                 window.draw(buttons[i].getShape());
             }
+            window.display();
         }
     }
     return 1;
