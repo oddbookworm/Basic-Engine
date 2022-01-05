@@ -14,7 +14,7 @@ class MainWindow
         std::string windowTitle;
         sf::RenderWindow window;
         nlohmann::json settings;
-        std::vector<Button*> buttons;
+        std::vector<Button> buttons;
 
         bool createWindow();
         bool runWindow();

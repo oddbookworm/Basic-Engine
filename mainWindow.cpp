@@ -40,7 +40,7 @@ bool MainWindow::runWindow()
 
             for (int i = 0; i < buttons.size(); i++)
             {
-                window.draw(buttons[i] -> getShape());
+                window.draw(buttons[i].getShape());
             }
         }
     }
@@ -50,5 +50,5 @@ bool MainWindow::runWindow()
 bool MainWindow::createButton()
 {
     Button newButton = Button(0, 0, 100, 50);
-    buttons.push_back(&newButton);
+    buttons.push_back(newButton);
 }
