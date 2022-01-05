@@ -1,5 +1,6 @@
 #include <fstream>
 #include "mainWindow.h"
+#include <SFML/Window/Mouse.hpp>
 
 MainWindow::MainWindow()
 {
@@ -37,6 +38,27 @@ bool MainWindow::runWindow()
                 std::cout << "Window Closed" << std::endl;
                 return 0;
             }
+            if (event.type == sf::Event::MouseButtonPressed)
+            {
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    int xPos = event.mouseButton.x;
+                    int yPos = event.mouseButton.y;
+
+                    for (int i = 0; i < buttons.size(); i++)
+                    {
+                        int xMin = buttons[i].getShape().getPosition().x;
+                        int xMax = buttons[i].getShape().getPosition().x + buttons[i].getShape().getSize().x;
+                        int yMin = buttons[i].getShape().getPosition().y;
+                        int yMax = buttons[i].getShape().getPosition().y + buttons[i].getShape().getSize().y;
+
+                        if (xPos >= xMin && xPos <= xMax && yPos >= yMin && yPos <= yMax)
+                        {
+                            std::cout << "Button Pressed" << std::endl;
+                        }
+                    }
+                }
+            }
 
             window.clear();
             for (int i = 0; i < buttons.size(); i++)
@@ -51,6 +73,11 @@ bool MainWindow::runWindow()
 
 bool MainWindow::createButton()
 {
-    Button newButton = Button(0, 0, 100, 50);
+    Button newButton = Button(100, 50, 20, 10);
     buttons.push_back(newButton);
+}
+
+bool MainWindow::checkButtonClick()
+{
+
 }
