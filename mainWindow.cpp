@@ -7,8 +7,8 @@ MainWindow::MainWindow()
     std::ifstream ifs("settings.json");
     settings = nlohmann::json::parse(ifs);
 
-    windowSize[0] = std::stoi(settings.value("MainWindowWidth", "500"));
-    windowSize[1] = std::stoi(settings.value("MainWindowHeight", "500"));
+    windowSize[0] = std::stoi(settings.value("MainWindowWidth", "1280"));
+    windowSize[1] = std::stoi(settings.value("MainWindowHeight", "720"));
 
     createButton();
     if (createWindow())
