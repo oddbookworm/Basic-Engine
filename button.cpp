@@ -7,7 +7,7 @@ Button::Button(int x, int y, float width, float height)
     shape.setFillColor(sf::Color::Red);
 }
 
-sf::RectangleShape Button::getShape()
+sf::RectangleShape& Button::getShape()
 {
     return shape;
 }
