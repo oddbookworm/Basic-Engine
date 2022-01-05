@@ -37,11 +37,11 @@ bool MainWindow::runWindow()
                 std::cout << "Window Closed" << std::endl;
                 return 0;
             }
-        }
 
-        for (int i = 0; i < buttons.size(); i++)
-        {
-            window.draw(buttons[i] -> getShape());
+            for (int i = 0; i < buttons.size(); i++)
+            {
+                window.draw(buttons[i] -> getShape());
+            }
         }
     }
     return 1;
