@@ -47,14 +47,16 @@ bool MainWindow::runWindow()
 
                     for (int i = 0; i < buttons.size(); i++)
                     {
-                        int xMin = buttons[i].getShape().getPosition().x;
-                        int xMax = buttons[i].getShape().getPosition().x + buttons[i].getShape().getSize().x;
-                        int yMin = buttons[i].getShape().getPosition().y;
-                        int yMax = buttons[i].getShape().getPosition().y + buttons[i].getShape().getSize().y;
+                        Button button = buttons[i];
+                        int xMin = button.getShape().getPosition().x;
+                        int xMax = button.getShape().getPosition().x + buttons[i].getShape().getSize().x;
+                        int yMin = button.getShape().getPosition().y;
+                        int yMax = button.getShape().getPosition().y + buttons[i].getShape().getSize().y;
 
                         if (xPos >= xMin && xPos <= xMax && yPos >= yMin && yPos <= yMax)
                         {
                             std::cout << "Button Pressed" << std::endl;
+                            button.doAction();
                         }
                     }
                 }
@@ -71,8 +73,13 @@ bool MainWindow::runWindow()
     return 1;
 }
 
+void tempFunction()
+{
+    std::cout << "Function Performed" << std::endl;
+}
+
 bool MainWindow::createButton()
 {
-    Button newButton = Button(100, 50, 20, 10);
+    Button newButton = Button(100, 50, 20, 10, tempFunction);
     buttons.push_back(newButton);
 }
